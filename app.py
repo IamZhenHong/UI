@@ -33,7 +33,7 @@ if create_target_button:
     if name:
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/targets/",
+                "https://poc2-168m.onrender.com/targets/",
                 json={
                     "name": name,
                     "gender": gender,
@@ -73,7 +73,7 @@ if st.button("分析恋爱状况"):
     if current_convo and st.session_state.target_id:
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/love_analysis/",
+                "https://poc2-168m.onrender.com/love_analysis/",
                 json={"convo": current_convo, "target_id": st.session_state.target_id,},
             )
             if response.status_code == 200:
@@ -91,7 +91,7 @@ if st.button("生成聊天策略"):
     if st.session_state.target_id:
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/chat_strategies/",
+                "https://poc2-168m.onrender.com/chat_strategies/",
                 json={"target_id": st.session_state.target_id},
             )
             if response.status_code == 200:
@@ -109,7 +109,7 @@ if st.button("获取回复选项"):
     if current_convo and st.session_state.target_id:
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/reply_options_flow/",
+                "https://poc2-168m.onrender.com/reply_options_flow/",
                 json={"target_id": st.session_state.target_id, "convo": current_convo},
             )
             if response.status_code == 200:
